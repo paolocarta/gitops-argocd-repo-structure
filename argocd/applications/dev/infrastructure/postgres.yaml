@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-org/gitops-repo.git
+    targetRevision: main
+    path: infrastructure/databases/postgres/overlays/dev
+  destination:
+    server: 'https://kubernetes.default.svc' # management cluster
+    namespace: databases
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -8,11 +8,11 @@ spec:
   source:
     repoURL: 'https://github.com/my-org/my-repo.git'
     targetRevision: main
-    path: argocd/applications
+    path: argocd/applications/env # env will be replaced at runtime with the environment name
     directory:
       recurse: true
   destination:
-    server: 'https://kubernetes.default.svc' # management cluster
+    server: 'https://kubernetes.default.svc'
     namespace: argocd
   syncPolicy:
     automated:
