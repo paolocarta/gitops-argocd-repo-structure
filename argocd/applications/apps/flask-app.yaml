@@ -15,11 +15,11 @@ spec:
     metadata:
       name: '{{cluster}}-flask-app'
     spec:
-      project: default
+      project: apps
       source:
         repoURL: 'https://github.com/your-org/your-repo.git'
         targetRevision: main
-        path: 'apps/flask-app/overlays/{{cluster}}'
+        path: 'apps/flask/overlays/{{cluster}}'
       destination:
         server: '{{url}}'
         namespace: apps

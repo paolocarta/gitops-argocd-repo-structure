@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps
+  namespace: argocd
+spec:
+  description: My App Project
+  sourceRepos:
+    - https://github.com/my-org/my-repo.git
+  destinations:
+    - namespace: apps
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceBlacklist:
+    - group: '*'
+      kind: 'Event'
+  # roles:
+  #   - name: my-role
+  #     description: My role description
+  #     policies:
+  #       - p, proj:my-app-project:my-role, applications, get, my-app-*, allow
+  #     groups:
+  #       - my-group

@@ -4,3 +4,16 @@ metadata:
   name: another-app
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: another-app
+  template:
+    metadata:
+      labels:
+        app: another-app
+    spec:
+      containers:
+        - name: another-app
+          image: another-app:latest
+          ports:
+            - containerPort: 80

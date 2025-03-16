@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: flask-app
+        image: your-docker-image:1.2.0
+        env:
+        - name: FLASK_ENV
+          value: dev
