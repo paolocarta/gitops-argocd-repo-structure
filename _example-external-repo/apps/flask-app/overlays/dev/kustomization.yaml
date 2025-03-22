@@ -1,0 +1,8 @@
+bases:
+  - ../../base
+
+# resources:
+#   - additional-resource.yaml
+
+# patches:
+#   - patch.yaml
