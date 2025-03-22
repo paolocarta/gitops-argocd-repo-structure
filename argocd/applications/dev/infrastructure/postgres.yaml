@@ -4,7 +4,7 @@ metadata:
   name: postgres
   namespace: argocd
 spec:
-  project: default
+  project: databases
   source:
     repoURL: https://github.com/your-org/gitops-repo.git
     targetRevision: main

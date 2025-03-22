@@ -1,16 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-self
+  name: root-app-dev
   namespace: argocd
 spec:
-  project: default
+  project: system
   source:
-    repoURL: https://github.com/your-org/gitops-repo.git
+    repoURL: 'https://github.com/my-org/my-repo.git'
     targetRevision: main
-    path: infrastructure/argocd
+    path: argocd/applications/dev
+    directory:
+      recurse: true
   destination:
-    server: 'https://kubernetes.default.svc' # management cluster
+    server: 'https://kubernetes.default.svc'
     namespace: argocd
   syncPolicy:
     automated:

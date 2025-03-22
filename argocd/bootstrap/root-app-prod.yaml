@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app
+  name: root-app-prod
   namespace: argocd
 spec:
-  project: default
+  project: system
   source:
     repoURL: 'https://github.com/my-org/my-repo.git'
     targetRevision: main
-    path: argocd/applications/env # env will be replaced at runtime with the environment name
+    path: argocd/applications/prod
     directory:
       recurse: true
   destination:

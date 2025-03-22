@@ -1,29 +1,18 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: ApplicationSet
-# metadata:
-#   name: flask-apps
-#   namespace: argocd
-# spec:
-#   generators:
-#     - list:
-#         elements:
-#           - cluster: dev
-#             url: https://kubernetes-dev.example.com
-#           - cluster: prod
-#             url: https://kubernetes-prod.example.com
-#   template:
-#     metadata:
-#       name: '{{cluster}}-flask-app'
-#     spec:
-#       project: default
-#       source:
-#         repoURL: 'https://github.com/your-org/your-repo.git'
-#         targetRevision: main
-#         path: 'apps/flask/app/overlays/{{cluster}}'
-#       destination:
-#         server: '{{url}}'
-#         namespace: apps
-#       syncPolicy:
-#         automated:
-#           prune: true
-#           selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: another-app
+  namespace: argocd
+spec:
+  project: apps
+  source:
+    repoURL: https://github.com/your-org/gitops-repo.git
+    targetRevision: main
+    path: apps/another-app/overlays/dev
+  destination:
+    server: 'https://kubernetes.default.svc' # same cluster
+    namespace: apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
