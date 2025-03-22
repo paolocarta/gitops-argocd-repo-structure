@@ -1,0 +1,32 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml  # Validates YAML syntax
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.32.0
+    hooks:
+      - id: yamllint  # Lints YAML files for style and correctness
+
+  - repo: https://github.com/kubernetes-sigs/kustomize
+    rev: v5.2.1
+    hooks:
+      - id: kustomize-build
+        name: kustomize build validation
+        entry: kustomize build overlays/env-test | tee /dev/null
+        language: system
+        pass_filenames: false
+
+  - repo: local
+    hooks:
+      - id: validate-argocd
+        name: Validate ArgoCD Manifests
+        entry: bash scripts/validate-argocd.sh
+        language: system
+        files: ^argocd/.*\.yaml$
+
+# pre-commit install
+# pre-commit run --all-files
