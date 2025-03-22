@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-repo-app-of-apps
+  namespace: argocd
+spec:
+  project: system
+  source:
+    repoURL: 'https://github.com/your-org/your-external-repo.git'
+    targetRevision: HEAD
+    path: argocd-apps
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: your-target-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,28 @@
+version: 1
+
+hooks:
+  # Pre-commit hooks run before a commit is finalized.
+  pre-commit:
+    # Lint YAML files to ensure proper syntax.
+    - id: yaml-lint
+      name: "YAML Linter"
+      entry: yamllint .
+      language: system
+      files: "\\.ya?ml$"
+      description: "Validate YAML syntax in Kubernetes manifests."
+      
+    # Validate Kubernetes manifests using kubeval.
+    - id: kubeval
+      name: "Kubernetes Manifests Validator"
+      entry: kubeval .
+      language: system
+      files: "\\.ya?ml$"
+      description: "Ensure Kubernetes manifest files conform to the schema."
+
+  # Commit-msg hook to enforce commit message guidelines.
+  commit-msg:
+    - id: commit-message-check
+      name: "Commit Message Lint"
+      entry: commitlint --edit "$1"
+      language: node
+      description: "Enforce conventional commit format in commit messages."

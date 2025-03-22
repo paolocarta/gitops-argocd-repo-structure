@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: apps
+  name: databases
   namespace: argocd
 spec:
   description: My App Project
   sourceRepos:
     - https://github.com/my-org/my-repo.git
   destinations:
-    - namespace: '*'
+    - namespace: databases
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: '*'
