@@ -6,7 +6,7 @@ metadata:
 spec:
   project: system
   source:
-    repoURL: 'https://github.com/your-org/your-external-repo.git'
+    repoURL: 'https://github.com/my-org/my-external-repo.git'
     targetRevision: HEAD
     path: argocd-apps
   destination:

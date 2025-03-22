@@ -9,7 +9,9 @@ spec:
     - https://github.com/my-org/my-repo.git
   destinations:
     - namespace: brokers
-      server: https://kubernetes.default.svc
+      server: https://my-cluster-dev.my-company.com
+    - namespace: brokers
+      server: https://my-cluster-prod.my-company.com
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

@@ -7,9 +7,12 @@ spec:
   description: My App Project
   sourceRepos:
     - https://github.com/my-org/my-repo.git
+    - https://github.com/my-org/my-external-repo.git
   destinations:
     - namespace: '*'
-      server: https://kubernetes.default.svc
+      server: https://my-cluster-dev.my-company.com
+    - namespace: '*'
+      server: https://my-cluster-prod.my-company.com
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'

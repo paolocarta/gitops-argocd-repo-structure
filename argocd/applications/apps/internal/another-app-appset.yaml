@@ -17,7 +17,7 @@ spec:
     spec:
       project: apps-{{cluster}}
       source:
-        repoURL: 'https://github.com/your-org/your-repo.git'
+        repoURL: 'https://github.com/my-org/my-repo.git'
         targetRevision: main
         path: 'apps/flask/overlays/{{cluster}}'
       destination:

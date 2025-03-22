@@ -5,11 +5,11 @@ metadata:
   spec:
     project: brokers
     source:
-      repoURL: 'https://github.com/yourorg/infrastructure.git'
+      repoURL: 'https://github.com/my-org/my-repo.git'
       targetRevision: HEAD
       path: infrastructure/databases/rabbitmq/overlays/dev
     destination:
-      server: 'https://kubernetes.default.svc'
+      server: 'https://kubernetes-dev.example.com'
       namespace: rabbitmq
     syncPolicy:
       automated:
