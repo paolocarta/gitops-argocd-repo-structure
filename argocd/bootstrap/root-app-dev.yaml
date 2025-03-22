@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app-dev
+  name: root-app-apps-dev
   namespace: argocd
 spec:
   project: system
@@ -9,6 +9,27 @@ spec:
     repoURL: 'https://github.com/my-org/my-repo.git'
     targetRevision: main
     path: argocd/applications/dev
+    directory:
+      recurse: true
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app-projects-dev
+  namespace: argocd
+spec:
+  project: system
+  source:
+    repoURL: 'https://github.com/my-org/my-repo.git'
+    targetRevision: main
+    path: argocd/app-projects
     directory:
       recurse: true
   destination:

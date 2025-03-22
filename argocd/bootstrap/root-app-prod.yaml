@@ -18,3 +18,25 @@ spec:
     automated:
       prune: true
       selfHeal: true
+--- 
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app-projects-prod
+  namespace: argocd
+spec:
+  project: system
+  source:
+    repoURL: 'https://github.com/my-org/my-repo.git'
+    targetRevision: main
+    path: argocd/app-projects
+    directory:
+      recurse: true
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
