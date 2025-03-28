@@ -7,7 +7,6 @@ spec:
   description: My App Project
   sourceRepos:
     - https://github.com/my-org/my-repo.git
-    - https://github.com/my-org/my-external-repo.git
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc
