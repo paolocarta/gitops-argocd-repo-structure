@@ -10,7 +10,7 @@ spec:
     targetRevision: main
     path: infrastructure/databases/postgres/overlays/dev
   destination:
-    server: 'https://kubernetes.default.svc' # management cluster
+    server: 'https://kubernetes.default.svc' 
     namespace: databases
   syncPolicy:
     automated:

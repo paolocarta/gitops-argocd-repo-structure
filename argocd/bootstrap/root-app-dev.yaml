@@ -1,3 +1,6 @@
+#
+# We can point here from the dev Terraform plan
+#
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -22,7 +25,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-app-projects-dev
+  name: root-app-appprojects-dev
   namespace: argocd
 spec:
   project: system

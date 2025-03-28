@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# This script bootstraps ArgoCD in multiple clusters and applies a root application manifest.
+# I leave it here as a reference. The idea is actually to bootstrap ArgoCD with Terraform.
+
 set -e  # Exit on error
 set -o pipefail
 
 NAMESPACE="argocd"
-VERSION=v2.13.4
 ARGOCD_PATH="infrastructure/argocd"
 ROOT_APP_PATH="argocd/bootstrap/root-app.yaml"
  
@@ -30,6 +32,4 @@ for CLUSTER in "${CLUSTERS[@]}"; do
     sed -i.bak "s/env/$CLUSTER/g" $ROOT_APP_PATH
     kubectl apply -f $ROOT_APP_PATH -n $NAMESPACE
 
-    # echo "Bootstrap complete! Access ArgoCD UI in cluster: $CLUSTER:"
-    # echo "kubectl port-forward svc/argocd-server -n $NAMESPACE 8080:443"
 done
