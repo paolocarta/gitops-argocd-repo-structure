@@ -14,3 +14,5 @@ To recap, we have three main folders:
 - **infrastructure**: Houses all middleware and infrastructure deployed by the DevOps team.
 
 [How to Structure your Gitops Repository with a Single ArgoCD Management Instance](https://medium.com/@paolocarta_it/how-to-structure-your-gitops-repository-with-a-single-argocd-instance-f128b916c915)
+
+[My website](https://paolocarta.com)
