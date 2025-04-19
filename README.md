@@ -1,4 +1,6 @@
 # gitops-repo
+
+This is a GitOps monorepo for ArgoCD running in multiple clusters, for instance one per environment.
  
 ## Structure
 
