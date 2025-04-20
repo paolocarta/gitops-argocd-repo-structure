@@ -6,7 +6,7 @@ metadata:
 spec:
   project: apps
   source:
-    repoURL: https://github.com/your-org/gitops-repo.git
+    repoURL: https://github.com/your-org/external-gitops-repo.git
     targetRevision: main
     path: apps/another-app/overlays/dev
   destination:
