@@ -9,6 +9,7 @@ spec:
     repoURL: 'https://github.com/my-org/my-external-repo.git'
     targetRevision: HEAD
     path: argocd-apps
+    recursive: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: your-target-namespace

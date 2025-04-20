@@ -6,11 +6,11 @@ metadata:
 spec:
   project: apps
   source:
-    repoURL: https://github.com/your-org/gitops-repo.git
+    repoURL: 'https://github.com/my-org/my-external-repo.git'
     targetRevision: main
     path: apps/flask-app/overlays/dev
   destination:
-    server: 'https://kubernetes.default.svc' # same cluster
+    server: 'https://my-dev-cluster.my-domain.com' 
     namespace: apps
   syncPolicy:
     automated:
